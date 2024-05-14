@@ -1,0 +1,48 @@
+version: "3.1"
+services:
+  # redis:
+  #     image: redis:5.0
+  #     ports:
+  #         - "6379:6379"
+  #     command: >
+  #         bash -c
+  #         "touch /redis.conf &&
+  #         echo 'maxmemory 700mb' > /redis.conf &&
+  #         echo 'maxmemory-policy allkeys-lru' >> /redis.conf &&
+  #         echo 'maxmemory-samples 5' >> /redis.conf &&
+  #         redis-server /redis.conf"
+  #     deploy:
+  #         resources:
+  #             limits:
+  #                 cpus: "0.50"
+  #                 memory: 2G
+  #         restart_policy:
+  #             condition: on-failure
+  #         placement:
+  #             constraints: [node.role == manager]
+  #         replicas: 1
+  # elastic:
+  # image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+  # environment:
+  #   - discovery.type=single-node
+  #   - bootstrap.memory_lock=false
+  #   - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+  #   - "xpack.security.enabled=false"
+  #   - xpack.monitoring.enabled=false
+  #   - http.cors.enabled=true
+  #   - http.cors.allow-origin=*
+  #   - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+  #   - http.cors.allow-credentials=true
+  # volumes:
+  #   - ./elasticserach-involv/data:/usr/share/elasticsearch/data
+  # ports:
+  #   - 9200:9200
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongo-bgc/datadir:/data/db
