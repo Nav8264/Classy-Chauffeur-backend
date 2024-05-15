@@ -58,11 +58,11 @@ router.post("/create-checkout-session", async (req, res) => {
 
     allow_promotion_codes: false,
     mode: "payment",
-    // success_url: `https://blackgrandeurchauffeur.com/booking/loading/${req.body?.booking?._id}`,
-    // cancel_url: `https://blackgrandeurchauffeur.com/vehicle`,
+    success_url: `https://classy-chauffeurs.vercel.app/booking/loading/${req.body?.booking?._id}`,
+    cancel_url: `https://classy-chauffeurs.vercel.app/vehicle`,
 
-    success_url: `http://localhost:3000/booking/loading/${req.body?.booking?._id}`,
-    cancel_url: `http://localhost:3000/vehicle`,
+    // success_url: `http://localhost:3000/booking/loading/${req.body?.booking?._id}`,
+    // cancel_url: `http://localhost:3000/vehicle`,
   });
 
   await Ride.findOneAndUpdate(
