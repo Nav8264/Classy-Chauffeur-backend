@@ -58,6 +58,7 @@ const io = require("socket.io")(http, {
       "http://localhost:5000",
       "http://127.0.0.1:5000",
       "https://bg-chauffeur-react-app.vercel.app/",
+      "https://classy-chauffeurs.vercel.app/",
       "https://bg-chauffeur-react-app.vercel.app",
       "https://black-grandeur-chauffeur.web.app/",
       "https://black-grandeur-chauffeur.web.app",
